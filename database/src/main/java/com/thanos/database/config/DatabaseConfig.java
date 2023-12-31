@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.thanos.database.Db;
 
+
 @Configuration
 public class DatabaseConfig 
 {
@@ -18,6 +19,7 @@ public class DatabaseConfig
 		return new JdbcTemplate(datasource);
 	}
 	
+
 	@Bean
 	public Db db(JdbcTemplate jdbctemplate)
 	{
