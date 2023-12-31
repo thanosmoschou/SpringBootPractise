@@ -1,0 +1,29 @@
+You need to have an IDE and Java installed.
+Go to https://start.spring.io/
+
+This site will helps us to create a template spring boot project
+
+On the project section select Maven. Choose Java as language
+
+On the Spring Boot section select the most recent version (not SNAPSHOT ones cause they are unstable)
+
+Change the Project Metadata:
+Group: something for example com.thanos
+Artifact: This is the name of the project for example HelloWorldApp
+Description: Provide a description
+Package name: select a package name
+Packaging: Jar
+Java: I select 17 because it is the minimum version that is supported by Spring boot.
+
+In the Dependencies select anything you want.
+
+Download it and import it to you preferable IDE. It is a maven project.
+
+
+-------------------------------
+If you select spring web:
+Spring boot provides an embedded apache tomcat server that runs on port 8080
+
+For communicating with databases you need:
+jdbc api
+mysql driver (if you want mysql otherwise select your preferred database)
