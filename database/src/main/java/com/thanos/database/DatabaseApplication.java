@@ -36,6 +36,7 @@ public class DatabaseApplication implements CommandLineRunner
 	private JdbcTemplate jdbctemplate; //With this object I can communicate with my database by executing queries
 	private Db db;
 	
+
 	//dependency injection
 	public DatabaseApplication(DataSource datasource, JdbcTemplate jdbctemplate, Db db)
 	{
@@ -44,10 +45,12 @@ public class DatabaseApplication implements CommandLineRunner
 		this.db = db;
 	}
 	
+
 	public static void main(String[] args) 
 	{
 		SpringApplication.run(DatabaseApplication.class, args);
 	}
+
 
 	@Override
 	public void run(String... args) throws Exception 
