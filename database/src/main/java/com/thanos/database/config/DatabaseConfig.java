@@ -12,7 +12,6 @@ import com.thanos.database.Db;
 @Configuration
 public class DatabaseConfig 
 {
-
 	@Bean
 	public JdbcTemplate jdbcTemplate(DataSource datasource) //datasource is created automatically
 	{
