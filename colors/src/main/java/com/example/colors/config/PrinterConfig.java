@@ -12,6 +12,13 @@ import com.example.colors.services.impl.SpanishBluePrinter;
 import com.example.colors.services.impl.SpanishGreenPrinter;
 import com.example.colors.services.impl.SpanishRedPrinter;
 
+
+/*
+@Configuration : Tags the class as a source of bean definitions for the application context. 
+
+@EnableAutoConfiguration : Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
+*/
+
 @Configuration
 public class PrinterConfig 
 {
