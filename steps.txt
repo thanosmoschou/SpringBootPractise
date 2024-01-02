@@ -27,3 +27,6 @@ Spring boot provides an embedded apache tomcat server that runs on port 8080
 For communicating with databases you need:
 jdbc api
 mysql driver (if you want mysql otherwise select your preferred database)
+
+--------------------------------
+Colors project contains useful comments on various topics of Spring boot such as beans, configuration etc.
