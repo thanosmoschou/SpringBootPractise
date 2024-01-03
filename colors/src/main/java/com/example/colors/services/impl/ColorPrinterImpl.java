@@ -46,7 +46,7 @@ public class ColorPrinterImpl implements ColorPrinter
 	 * 
 	 * The concrete classes are called Beans
   	 * 
-    	 * In Spring Boot, a bean is a Java object managed by the Spring framework's IoC (Inversion of Control) container. 
+    	* In Spring Boot, a bean is a Java object managed by the Spring framework's IoC (Inversion of Control) container. 
 	 * It is a fundamental building block of a Spring application and represents a reusable component that can be wired 
 	 * together with other beans to create the application's functionality.
   	 *
