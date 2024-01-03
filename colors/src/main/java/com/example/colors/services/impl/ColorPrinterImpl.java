@@ -46,8 +46,10 @@ public class ColorPrinterImpl implements ColorPrinter
 	 * 
 	 * The concrete classes are called Beans
   	 * 
-  	 * The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans.
-    	 *
+    	 * In Spring Boot, a bean is a Java object managed by the Spring framework's IoC (Inversion of Control) container. 
+	 * It is a fundamental building block of a Spring application and represents a reusable component that can be wired 
+	 * together with other beans to create the application's functionality.
+  	 *
 	 * How do I create Beans? One way is with configuration file.
 	 * Go to the root of the project com.example.colors and create a package and call it for example config.
 	 * Inside the config package create a new class called for example PrinterConfig.
