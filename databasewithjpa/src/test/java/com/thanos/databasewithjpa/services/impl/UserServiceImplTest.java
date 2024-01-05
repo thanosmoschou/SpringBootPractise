@@ -86,13 +86,24 @@ public class UserServiceImplTest
 		
 		/*
 		 * The following method when:
-		 * It tells that when you call the findById method of userRepository object
-		 * then:
-		 * if you pass "M" as a parameter then the user1 will be returned or
+		 * It tells that when you call the findById method of userRepository object with "M" as a parameter then user1 will be returned.
 		 * 
 		 * It modifies the original behavior of the object's method
 		 */
-		
+
+  /*
+   * Mockito creates mock objects by 
+   * default with a behavior of 
+   * “do nothing”. This means that if a
+   * method is called on a mock object and
+   * no behavior has been specified, the
+   * method will simply return null or the
+   * default value for its return type. It
+   * is important to specify the behavior of
+   * mock objects to ensure that they behave
+   * as expected in tests.
+   * 
+   */
 		when(userRepository.findById("M")).thenReturn(Optional.of(user1));	
 		
 		assertEquals(user1, underTest.findUserByName("M").get());
