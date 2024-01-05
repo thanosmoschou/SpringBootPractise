@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.thanos.database.daos.UserDao;
+
 /*
  * In this project I learn how to connect to a mysql database and how I can interact 
  * with the data from the database.
@@ -26,21 +28,21 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * I created a user called spring with a password spring and database called learnspring.
  * Then I specified some privileges for the learnspring database to spring user otherwise 
  * the connection was denied.
+ * 
+ * Keep in mind that is a good idea not to make each service interact with the database by itself.
+ * It is good practise to create some Database Access Objects (DAO) to provide some data operations.
+ * 
  */
 
 @SpringBootApplication
 public class DatabaseApplication implements CommandLineRunner
 {
-	private DataSource datasource; //This creates a connection object
-	private JdbcTemplate jdbctemplate; //With this object I can communicate with my database by executing queries
-	private Db db;
+	private UserDao userDao;
 	
 	//dependency injection
-	public DatabaseApplication(DataSource datasource, JdbcTemplate jdbctemplate, Db db)
+	public DatabaseApplication(UserDao userDao)
 	{
-		this.datasource = datasource;
-		this.jdbctemplate = jdbctemplate; 
-		this.db = db;
+		this.userDao = userDao;
 	}
 	
 	public static void main(String[] args) 
@@ -51,7 +53,6 @@ public class DatabaseApplication implements CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception 
 	{
-		System.out.println(datasource.toString());		
-		db.printAllUsers();
+		userDao.printAllUsers();
 	}
 }

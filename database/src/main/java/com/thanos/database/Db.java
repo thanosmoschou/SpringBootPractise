@@ -8,7 +8,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class Db 
 {
 	private ArrayList<User> users;
-	private JdbcTemplate jdbctemplate;
+	private JdbcTemplate jdbctemplate; //With this object I can communicate with my database by executing queries
 	
 	public Db(JdbcTemplate jdbctemplate)
 	{

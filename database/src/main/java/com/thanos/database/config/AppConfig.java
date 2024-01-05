@@ -7,9 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.thanos.database.Db;
+import com.thanos.database.daos.impl.UserDaoImpl;
 
 @Configuration
-public class DatabaseConfig 
+public class AppConfig 
 {
 	@Bean
 	public JdbcTemplate jdbcTemplate(DataSource datasource) //datasource is created automatically
@@ -21,5 +22,11 @@ public class DatabaseConfig
 	public Db db(JdbcTemplate jdbctemplate)
 	{
 		return new Db(jdbctemplate);
+	}
+	
+	@Bean
+	public UserDaoImpl userDaoImpl(Db db)
+	{
+		return new UserDaoImpl(db);
 	}
 }
