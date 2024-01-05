@@ -1,11 +1,8 @@
 package com.thanos.database;
 
-import javax.sql.DataSource;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.thanos.database.daos.UserDao;
 
@@ -31,6 +28,12 @@ import com.thanos.database.daos.UserDao;
  * 
  * Keep in mind that is a good idea not to make each service interact with the database by itself.
  * It is good practise to create some Database Access Objects (DAO) to provide some data operations.
+ * 
+ * Note that if I had multiple Daos, I could be able to combine them using repository pattern.
+ * Simply I would create a repositories package with a repository interface and a repository implementation.
+ * Inside this implementation I would have my daos in order to retrieve data.
+ * Then inside the main application (or inside one service class) I would provide the repository in order to call
+ * its methods for accessing data.
  * 
  */
 
