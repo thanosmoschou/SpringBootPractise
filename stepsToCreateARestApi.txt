@@ -1,0 +1,85 @@
+For my person api:
+
+Build the domain layer(part of business logic layer):
+I created my Person class which will be used via JPA to save and 
+retrieve from the db.
+
+Build the persistence layer:
+Create a repository which will be used inside the application to interact with
+the database. This repository will contain some methods for accessing data.
+
+My repository is an interface that extends JpaRepository. By extending
+this repository, we will have some methods for free and spring will take care
+of the implementation for us.
+
+Build the service layer:
+Create service interface
+Create an implementation of the previous interface. Each method implementation
+will use some of the repository's methods.
+
+Build the presentation layer:
+Build the RestController
+
+Due to the fact that I annotated the service implementation with @Service, and
+the repository interface with @Repository, I do not have to create a 
+configuration class for the beans.
+
+Also application.properties provides information about how to connect to the h2 
+database. Keep in mind that inside the src/main/resources I provided two sql files:
+schema.sql which tells spring what table to create and data.sql which tells 
+spring what data to insert inside the table.
+
+--------------------------------
+In rest apis it is very common that path has /api
+
+When I use get request, I can pass the parameters with 2 ways:
+
+1st way: By using path parameters
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class MyController {
+
+    @GetMapping("/getResource/{param1}/{param2}")
+    public String getResource(@PathVariable String param1, @PathVariable String param2) {
+        // Here you can use the parameters (param1, param2) in the service logic
+        return "The service responds to a GET request with parameters: " + param1 + ", " + param2;
+    }
+}
+
+In this example, the parameters param1 and param2 are taken from the path of the URL.
+
+2nd way: By using query string parameters
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class MyController {
+
+    @GetMapping("/getResource")
+    public String getResource(@RequestParam String param1, @RequestParam String param2) {
+        // Here you can use the parameters (param1, param2) in the service logic
+        return "The service responds to a GET request with parameters: " + param1 + ", " + param2;
+    }
+}
+
+In this example, the parameters param1 and param2 are taken from the query string of the URL.
+
+-------------------------
+
+The use of the @RequestMapping("/api") annotation is not necessary, but it can be used to define a base path for all methods in that specific controller.
+
+In this case, all methods in the MyController will be available under the path /api. For example, the getResource method will be accessible through /api/getResource.
+
+If you don't specify a request mapping, then it defaults to the path of the class. For instance, if the class has the annotation @RequestMapping("/api"), the paths of the methods will be under /api.
+
+In general, using a request mapping annotation can make your code more organized and easier to maintain, especially when you have multiple controllers in your application.

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+    <h2>Let's see the data</h2>
+    <ul>
+        <!--th:each helps me to iterate through my collection. 
+            It will iterate through all users through my repo and each instance will place it to the user object.
+            Keep in mind that due to the fact that the th:each is placed inside an li tag, it will create an li tag
+            for each user instance of the collection.
+        -->
+        <li th:each="user : ${returnedUsers}"> 
+            <span th:text="${user.name}"></span>
+            <span th:text="${user.age}"></span>
+            <span th:text="${user.phone}"></span>
+
+        </li>
+    </ul>
+    
+</body>
+</html>
